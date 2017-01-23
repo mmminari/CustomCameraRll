@@ -10,6 +10,13 @@
 #import "ImageCell.h"
 #import "DetailVeiwController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/PHAsset.h>
+#import <Photos/PHCollection.h>
+#import <Photos/PHAssetResourceManager.h>
+#import <Photos/PHImageManager.h>
+
+
+
 
 #define STANDARD_DEVICE_WIDTH                                       414.0f
 #define DEVICE_WIDTH                                                [UIScreen mainScreen].bounds.size.width
@@ -19,6 +26,8 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *cvPhoto;
 @property (strong, nonatomic) ALAssetsLibrary *library;
+@property (strong, nonatomic) PHAsset *phAsset;
+
 @property (strong, nonatomic) NSMutableArray *imageList;
 
 @end
@@ -29,15 +38,51 @@
 {
     [super viewDidLoad];
     
-    [self getAlbum];
+    //[self getAlbum];
+    
+    self.imageList = [NSMutableArray new];
+    
+    [self getAlbumByUsingPHAsset];
     
     self.navigationController.navigationBarHidden = YES;
     
-    self.imageList = [NSMutableArray new];
     
     [self.cvPhoto registerNib:[UINib nibWithNibName:@"ImageCell" bundle:nil] forCellWithReuseIdentifier:@"ImageCell"];
 
 }
+
+#pragma mark - PHPhotoLibrary
+- (void)getAlbumByUsingPHAsset
+{
+    
+    PHFetchResult *result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
+
+    [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if(idx < 10)
+        {
+            PHAsset *asset = (PHAsset *)obj;
+            
+            CGSize imageSize = CGSizeMake(asset.pixelWidth, asset.pixelHeight);
+            
+            [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:imageSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                
+                [self.imageList addObject:result];
+                
+                NSLog(@"image : %@", result);
+                
+            }];
+        }
+        
+        NSLog(@"self.imaegList : %@", self.imageList);
+        
+        [self.cvPhoto reloadData];
+    }];
+    
+}
+
+
+#pragma mark - ALAssetsLibrary
 
 -(void)getAlbum
 {
@@ -77,9 +122,11 @@
 {
     ImageCell *cell = [self.cvPhoto dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     
-    ALAsset *asset = (ALAsset *)self.imageList[indexPath.item];
+//    ALAsset *asset = (ALAsset *)self.imageList[indexPath.item];
+//    
+//    cell.ivPhoto.image = [UIImage imageWithCGImage:[asset thumbnail]];
     
-    cell.ivPhoto.image = [UIImage imageWithCGImage:[asset thumbnail]];
+    cell.ivPhoto.image = (UIImage *)self.imageList[indexPath.item];
     
     return cell;
 }
