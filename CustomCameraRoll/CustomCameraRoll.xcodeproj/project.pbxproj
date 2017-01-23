@@ -14,6 +14,9 @@
 		6D3696561E3202DE00141803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D3696551E3202DE00141803 /* Assets.xcassets */; };
 		6D3696591E3202DE00141803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D3696571E3202DE00141803 /* LaunchScreen.storyboard */; };
 		6D3696641E3202DF00141803 /* CustomCameraRollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3696631E3202DF00141803 /* CustomCameraRollTests.m */; };
+		6D4FAC601E35A5A0002CAA7C /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FAC5E1E35A5A0002CAA7C /* ImageCell.m */; };
+		6D4FAC611E35A5A0002CAA7C /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FAC5F1E35A5A0002CAA7C /* ImageCell.xib */; };
+		6D4FAC641E35AC40002CAA7C /* DetailVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FAC631E35AC40002CAA7C /* DetailVeiwController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 		6D36965F1E3202DF00141803 /* CustomCameraRollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomCameraRollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3696631E3202DF00141803 /* CustomCameraRollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCameraRollTests.m; sourceTree = "<group>"; };
 		6D3696651E3202DF00141803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D4FAC5D1E35A5A0002CAA7C /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		6D4FAC5E1E35A5A0002CAA7C /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		6D4FAC5F1E35A5A0002CAA7C /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		6D4FAC621E35AC40002CAA7C /* DetailVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVeiwController.h; sourceTree = "<group>"; };
+		6D4FAC631E35AC40002CAA7C /* DetailVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVeiwController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,11 @@
 				6D3696571E3202DE00141803 /* LaunchScreen.storyboard */,
 				6D36965A1E3202DE00141803 /* Info.plist */,
 				6D3696491E3202DE00141803 /* Supporting Files */,
+				6D4FAC5D1E35A5A0002CAA7C /* ImageCell.h */,
+				6D4FAC5E1E35A5A0002CAA7C /* ImageCell.m */,
+				6D4FAC5F1E35A5A0002CAA7C /* ImageCell.xib */,
+				6D4FAC621E35AC40002CAA7C /* DetailVeiwController.h */,
+				6D4FAC631E35AC40002CAA7C /* DetailVeiwController.m */,
 			);
 			path = CustomCameraRoll;
 			sourceTree = "<group>";
@@ -160,6 +173,7 @@
 				TargetAttributes = {
 					6D3696451E3202DE00141803 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = A87J69XM38;
 						ProvisioningStyle = Automatic;
 					};
 					6D36965E1E3202DF00141803 = {
@@ -194,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D3696591E3202DE00141803 /* LaunchScreen.storyboard in Resources */,
+				6D4FAC611E35A5A0002CAA7C /* ImageCell.xib in Resources */,
 				6D3696561E3202DE00141803 /* Assets.xcassets in Resources */,
 				6D3696541E3202DE00141803 /* Main.storyboard in Resources */,
 			);
@@ -214,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D3696511E3202DE00141803 /* ViewController.m in Sources */,
+				6D4FAC641E35AC40002CAA7C /* DetailVeiwController.m in Sources */,
+				6D4FAC601E35A5A0002CAA7C /* ImageCell.m in Sources */,
 				6D36964E1E3202DE00141803 /* AppDelegate.m in Sources */,
 				6D36964B1E3202DE00141803 /* main.m in Sources */,
 			);
@@ -349,7 +366,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A87J69XM38;
 				INFOPLIST_FILE = CustomCameraRoll/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smict.CustomCameraRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,7 +379,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A87J69XM38;
 				INFOPLIST_FILE = CustomCameraRoll/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smict.CustomCameraRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,6 +431,7 @@
 				6D36966A1E3202DF00141803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D36966B1E3202DF00141803 /* Build configuration list for PBXNativeTarget "CustomCameraRollTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +440,7 @@
 				6D36966D1E3202DF00141803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
