@@ -12,6 +12,6 @@
 
 @interface DetailVeiwController : UIViewController
 
-@property (strong, nonatomic) ALAsset *asset;
+@property (strong, nonatomic) UIImage *image;
 
 @end

@@ -19,11 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    ALAssetRepresentation *representation = [self.asset defaultRepresentation];
-    
-    self.ivDetail.image = [UIImage imageWithCGImage:representation.fullScreenImage];
-    
+
+    self.ivDetail.image = self.image;
 }
 
 - (IBAction)touchedBackButton:(UIButton *)sender

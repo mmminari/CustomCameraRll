@@ -111,9 +111,13 @@
     
     ALAsset *asset = (ALAsset *)self.imageList[indexPath.item];
     
+    ALAssetRepresentation *representation = [asset defaultRepresentation];
+    
+    UIImage *image = [UIImage imageWithCGImage:representation.fullScreenImage];
+    
     DetailVeiwController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"sitd-DetailVeiwController"];
     
-    detailVC.asset = asset;
+    detailVC.image = image;
     
     [self.navigationController pushViewController:detailVC animated:YES];
     
