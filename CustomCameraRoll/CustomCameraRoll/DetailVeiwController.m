@@ -19,8 +19,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ALAssetRepresentation *representation = [self.asset defaultRepresentation];
+    
+    self.ivDetail.image = [UIImage imageWithCGImage:representation.fullScreenImage];
+    
 }
 
+- (IBAction)touchedBackButton:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 @end

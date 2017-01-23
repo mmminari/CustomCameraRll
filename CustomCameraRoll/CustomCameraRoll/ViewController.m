@@ -31,6 +31,8 @@
     
     [self getAlbum];
     
+    self.navigationController.navigationBarHidden = YES;
+    
     self.imageList = [NSMutableArray new];
     
     [self.cvPhoto registerNib:[UINib nibWithNibName:@"ImageCell" bundle:nil] forCellWithReuseIdentifier:@"ImageCell"];
@@ -107,7 +109,11 @@
 {
     NSLog(@"didSelect : %zd", indexPath.item);
     
-    DetailVeiwController *detailVC = [[DetailVeiwController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    ALAsset *asset = (ALAsset *)self.imageList[indexPath.item];
+    
+    DetailVeiwController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"sitd-DetailVeiwController"];
+    
+    detailVC.asset = asset;
     
     [self.navigationController pushViewController:detailVC animated:YES];
     
