@@ -123,9 +123,17 @@
 //    ALAsset *asset = (ALAsset *)self.imageList[indexPath.item];
 //    
 //    cell.ivPhoto.image = [UIImage imageWithCGImage:[asset thumbnail]];
-    PHAsset *asset = self.imageList[indexPath.item];
     
-    [self setImageFromPHAsset:asset imageView:cell.ivPhoto];
+    @try {
+        
+        PHAsset *asset = self.imageList[indexPath.item];
+        
+        [self setImageFromPHAsset:asset imageView:cell.ivPhoto];
+        
+    } @catch (NSException *exception) {
+        NSLog(@"exception : %@", exception.description);
+        
+    }
     
     return cell;
 }
